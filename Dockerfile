@@ -56,7 +56,7 @@ ENV PATH="/root/miniconda3/bin:${PATH}"
 RUN conda install -y -c anaconda cmake
 
 # Clone and build voxcraft-sim using the updated CMake
-RUN git clone https://github.com/voxcraft/voxcraft-sim.git && \
+RUN git clone https://github.com/JacksonKiino-Terburg/voxcraft-sim.git && \
     cd voxcraft-sim && \
     mkdir build && cd build && \
     /opt/cmake/bin/cmake .. && make -j 10
