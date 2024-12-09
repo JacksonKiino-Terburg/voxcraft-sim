@@ -14,12 +14,12 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.12.0/cmake-3.12.0
     chmod +x cmake-3.12.0-Linux-x86_64.sh && \
     ./cmake-3.12.0-Linux-x86_64.sh --skip-license --prefix=/opt/cmake && \
     rm -f cmake-3.12.0-Linux-x86_64.sh
-    
+
 # Verify CMake installation
 RUN /opt/cmake/bin/cmake --version
 
 # Second stage: Install CUDA 12.6 and dependencies, then build voxcraft-sim
-FROM nvcr.io/nvidia/cuda:12.4.0-devel-ubuntu22.04
+FROM nvcr.io/nvidia/cuda:10.2-devel-ubuntu18.04
 
 # Set non-interactive mode and preconfigure timezone to avoid prompts
 ENV DEBIAN_FRONTEND=noninteractive
