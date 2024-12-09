@@ -49,6 +49,10 @@ if (NOT DEFINED CUDA_ARCH)
   message("CUDA_SELECT_NVCC_ARCH_FLAGS returns: " ${RET_ARCH_FLAGS})
   list(LENGTH RET_ARCH_FLAGS FLAG_LENGTH)
   message("Flag length: " ${FLAG_LENGTH})
+  if (FLAG_LENGTH GREATER 3)
+    # CUDA_SELECT_NVCC_ARCH_FLAGS resulted more than 3 items, which is probably GPU not found error.
+    message(FATAL_ERROR "Nvidia GPU not found. Abort.")
+  endif()
   list(GET RET_ARCH_FLAGS -1 CUDA_ARCH) # use newest architecture
 endif()
 message("Using GPU Architecture: " ${CUDA_ARCH})

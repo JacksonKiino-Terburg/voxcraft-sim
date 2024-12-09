@@ -10,11 +10,11 @@ RUN apt-get update && apt-get install -y wget
 RUN mkdir -p /opt/cmake && chmod -R 777 /opt/cmake
 
 # Download and install CMake
-RUN wget https://github.com/Kitware/CMake/releases/latest/download/cmake-3.31.2-linux-x86_64.sh && \
-    chmod +x cmake-3.31.2-linux-x86_64.sh && \
-    ./cmake-3.31.2-linux-x86_64.sh --skip-license --prefix=/opt/cmake && \
-    rm -f cmake-3.31.2-linux-x86_64.sh
-
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.12.0/cmake-3.12.0-Linux-x86_64.sh && \
+    chmod +x cmake-3.12.0-Linux-x86_64.sh && \
+    ./cmake-3.12.0-Linux-x86_64.sh --skip-license --prefix=/opt/cmake && \
+    rm -f cmake-3.12.0-Linux-x86_64.sh
+    
 # Verify CMake installation
 RUN /opt/cmake/bin/cmake --version
 
